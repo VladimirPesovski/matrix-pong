@@ -89,7 +89,7 @@ export default class Game {
     this.score1.render(svg, this.player1.score)
     this.score2.render(svg, this.player2.score)
 
-    if(this.player1.score === 10){
+    if(this.player1.score >= 10){
       start.pause()
       gameOver.innerText = "Player 1 wins";
       document.getElementById('over').play();
@@ -99,7 +99,7 @@ export default class Game {
     }
 
 
-    if(this.player2.score === 10){
+    if(this.player2.score >= 10){
     start.pause()
     gameOver.innerText = "Player 2 wins";
     document.getElementById('over').play();
