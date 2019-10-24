@@ -5,7 +5,7 @@ export default class Ball2 {
     this.radius = radius
     this.boardWidth = boardWidth
     this.boardHeight = boardHeight
-    this.direction = 1
+    this.direction = -1
     this.reset()
 
     }
