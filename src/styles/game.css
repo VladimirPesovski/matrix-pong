@@ -109,3 +109,19 @@ body {
   background: url("https://media.giphy.com/media/rWY9ySfjytitq/giphy.gif");
 }
 
+.blue {
+  background: blue;
+  color: black;
+  font-size: 24px;
+  margin: auto;
+  text-align: center;
+}
+
+.red {
+  background: red;;
+  color: black;
+  font-size: 24px;
+  margin: auto;
+  text-align: center;
+}
+
