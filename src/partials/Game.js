@@ -15,8 +15,6 @@ export default class Game {
 
     this.gameElement = document.getElementById(this.element)
     
-    
-    
     //create a new instance of board. height and weight passed through fron Game object
     this.board = new Board(this.width, this.height)
     
