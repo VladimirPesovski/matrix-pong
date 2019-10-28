@@ -4,27 +4,19 @@ import Paddle from './Paddle'
 import Ball from './Ball'
 import Score from './Score'
 import Ball2 from './Ball2';
-
-
 export default class Game {
   constructor(element, width, height) {
     this.element = element;
     this.width = width;
     this.height = height;
     this.gameOn = true;
-
     this.gameElement = document.getElementById(this.element)
-    
-    //create a new instance of board. height and weight passed through fron Game object
     this.board = new Board(this.width, this.height)
-    
-      this.paddleWidth = 8
-      this.paddleHeight = 56
-      this.boardGap = 10
-
+    this.paddleWidth = 8
+    this.paddleHeight = 56
+    this.boardGap = 10
     this.ball = new Ball(8, this.width, this.height)
     this.ball2 = new Ball2(8, this.width, this.height)
-
     this.player1 = new Paddle(
       this.height,
       this.paddleWidth,
@@ -34,7 +26,6 @@ export default class Game {
       KEYS.a,
       KEYS.z
     )
-
     this.player2 = new Paddle(
       this.height,
       this.paddleWidth,
@@ -44,10 +35,8 @@ export default class Game {
       KEYS.up,
       KEYS.down
     )
-
     this.score1 = new Score(this.width / 2 - 50, 30, 30)
     this.score2 = new Score(this.width / 2 + 25, 30, 30)
-
 
     document.addEventListener("keydown", event => {
     switch(event.key) {
@@ -59,13 +48,10 @@ export default class Game {
       break
       }
     }) 
-
   }
 
   render() {
-
     if(this.gameOn){
-
       this.player1.speed = 0
       this.player2.speed = 0
       return
@@ -87,26 +73,19 @@ export default class Game {
     this.score1.render(svg, this.player1.score)
     this.score2.render(svg, this.player2.score)
 
-    if(this.player1.score >= 10){
+    if(this.player1.score >= 15){
       start.pause()
       gameOver.innerText = "Player 1 wins";
       document.getElementById('over').play();
       play.loop = false;
-      
       return;
     }
-
-
-    if(this.player2.score >= 10){
+  if(this.player2.score >= 15){
     start.pause()
     gameOver.innerText = "Player 2 wins";
     document.getElementById('over').play();
     play.loop = false;
-    
     return;
-    }
-    
-
+    } 
   }
-
 }

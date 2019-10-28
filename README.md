@@ -38,15 +38,6 @@ The deployment workflow for this project will be a bit different from what you'v
 To deploy your finished Pong project as a GitHub page, you must first **update the `predeploy` script in the `package.json` file with the name of your repo.**
 
 
-
-Technology used:
-    HTML5 (https://en.wikipedia.org/wiki/HTML)
-    CSS (https://en.wikipedia.org/wiki/Cascading_Style_Sheets)
-    JavaScript (https://en.wikipedia.org/wiki/JavaScript)
-
-
-
-
 For example, if your repo URL is:
 
 https://github.com/bob/pong-project
@@ -60,6 +51,26 @@ Update the `predeploy` script as follows:
 Once you have done this, you can run:
 
 `$ npm run deploy`
+
+Instructions:
+
+Play / Pause game = space bar
+
+Player one commands: 
+UP - key A
+DOWN - key Z
+
+Player two commands:
+UP - arrow UP
+DOWN - arrow DOWN
+
+Blue ball = 1 point
+Red ball = 2 poins
+
+Whoever reaches 15 points first is a winner.
+
+To restart the game, simply press the refresh button.
+
 
 Personal 
 

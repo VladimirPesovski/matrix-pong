@@ -1,5 +1,4 @@
 import {SVG_NS} from '../settings'
-
 export default class Ball2 {
     constructor(radius, boardWidth, boardHeight){
     this.radius = radius
@@ -7,9 +6,7 @@ export default class Ball2 {
     this.boardHeight = boardHeight
     this.direction = -1
     this.reset()
-
     }
-
 
     wallCollision() {
         const hitLeft = this.x - this.radius <= 0
@@ -27,32 +24,26 @@ export default class Ball2 {
     if(this.vx > 0) {
         let paddle = player2.coordinates(player2.x, player2.y, player2.width, player2.height)
         let [leftX, rightX, topY, bottomY] = paddle
-        
         if (
             (this.x + this.radius >= leftX)
             && (this.x + this.radius <= rightX)
             && (this.y >= topY && this.y <= bottomY)
         ) {
             this.vx = -this.vx
-            document.getElementById('bigball').play();
-            
+            document.getElementById('bigball').play();   
         }
-
-    } else {
-
+        } 
+        else {
         let paddle = player1.coordinates(player1.x, player1.y, player1.width, player1.height)
         let [leftX, rightX, topY, bottomY] = paddle
         if(
             (this.x - this.radius <= rightX)
             && (this.x - this.radius >= leftX)
-            && (this.y >= topY && this.y <= bottomY)
-            
+            && (this.y >= topY && this.y <= bottomY)   
         ) {
             this.vx = -this.vx
             document.getElementById('bigball').play();
-        }
-        
-        
+        }   
     }
 
     }
@@ -68,7 +59,6 @@ export default class Ball2 {
             
         }
         this.vx = this.direction * (6 - Math.abs(this.vy))
-
     }
 
     goal(player) {
@@ -79,7 +69,6 @@ export default class Ball2 {
     render(svg, player1, player2) {  
         this.x += this.vx
         this.y += this.vy
-
         this.wallCollision()
         this.paddleCollision(player1, player2)
         let circle = document.createElementNS(SVG_NS, 'circle')
@@ -90,7 +79,6 @@ export default class Ball2 {
         circle.setAttributeNS(null, 'stroke-width', '8')
         svg.appendChild(circle)
         
-        //detect score
         const rightGoal = this.x + this.radius >= this.boardWidth
         const leftGoal = this.x - this.radius <= 0
 
